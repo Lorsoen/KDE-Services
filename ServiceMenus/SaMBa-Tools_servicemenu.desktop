@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=SaMBa-Tools;
-Icon=ks-smbfs
+Icon=emblem-shared-symbolic
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxSaMBa Toolsxx
 
 [Desktop Action SaMBa-Tools]
 Exec=which smbclient; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="SaMBa Shares Mounter" --passivepopup="[Error] Please install smbclient command and try again."; exit 1; else ~/.local/share/applications/SaMBa_Tools-mount-umount-share.sh %F;fi
-Icon=ks-smbfs
+Icon=media-mount
 Name=SaMBa Shares Mounter
 Name[de]=Gemeinsame SaMBa-Orte einbinden
 Name[es]=Montador de Compartidos SaMBa

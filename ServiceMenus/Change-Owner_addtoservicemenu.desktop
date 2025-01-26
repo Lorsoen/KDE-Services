@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=ChangeOwner;
-Icon=ks-owner
+Icon=im-user
 MimeType=all/allfiles;
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -10,7 +10,7 @@ X-KDE-Submenu[x-test]=xxKDE-Servicesxx
 
 [Desktop Action ChangeOwner]
 Exec=kdesu -i ks-owner --noignorebutton -d ~/.local/share/applications/Dolphin_Tools-change-owner.sh %F
-Icon=ks-owner
+Icon=im-user
 Name=Change Owner Here
 Name[de]=Eigentümer hier ändern
 Name[es]=Cambiar Propietario Aquí

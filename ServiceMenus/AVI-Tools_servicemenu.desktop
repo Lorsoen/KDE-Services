@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=AVIsplitSize;AVIsplitTime;
-Icon=ks-video
+Icon=emblem-videos-symbolic
 MimeType=video/x-msvideo;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -21,7 +21,7 @@ X-KDE-Submenu[x-test]=xxAVI Toolsxx
 
 [Desktop Action AVIsplitSize]
 Exec=which avisplit; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Split (to size)" --passivepopup="[Error] Please install avisplit command and try again."; exit 1; else ~/.local/share/applications/AVI_Tools-avi-split-size.sh %F;fi
-Icon=ks-video
+Icon=edit-cut-symbolic
 Name=Split (to size)
 Name[de]=Auf Größe stückeln
 Name[es]=Cortar (a medida)
@@ -37,7 +37,7 @@ Name[x-test]=xxSplit (to size)xx
 
 [Desktop Action AVIsplitTime]
 Exec=which avisplit; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Split (by time range)" --passivepopup="[Error] Please install avisplit command and try again."; exit 1; else ~/.local/share/applications/AVI_Tools-avi-split-time.sh %F;fi
-Icon=ks-video
+Icon=edit-cut-symbolic
 Name=Split (by time range)
 Name[de]=Auf Länge stückeln
 Name[es]=Cortar (por rango de tiempo)

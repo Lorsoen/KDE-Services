@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=SSH-keygen;SSH-copy-id;SSH;SCP;SSHfs;ViewMachine;
-Icon=ks-sshfs
+Icon=folder-remote-symbolic
 MimeType=all/allfiles;
 Type=Service
 X-KDE-Priority=TopLevel
@@ -21,7 +21,7 @@ X-KDE-Submenu[x-test]=xxSSH Toolsxx
 
 [Desktop Action SCP]
 Exec=xterm -T "Send to Remote Server" -bg black -fg white -e ~/.local/share/applications/SSH_Tools-scp.sh %f
-Icon=ks-terminal
+Icon=terminal-app-symbolic
 Name=Send to Remote Server
 Name[de]=Zu Remote Server senden
 Name[es]=Enviar a Servidor Remoto
@@ -37,7 +37,7 @@ Name[x-test]=xxSend to Remote Serverxx
 
 [Desktop Action SSH]
 Exec=~/.local/share/applications/SSH_Tools-connect.sh %F
-Icon=ks-connect-to
+Icon=cvc-connect
 Name=Connect to Remote Server
 Name[de]=Mit Remote Server verbinden
 Name[es]=Conectar a Servidor Remoto
@@ -53,7 +53,7 @@ Name[x-test]=xxConnect to Remote Serverxx
 
 [Desktop Action SSH-copy-id]
 Exec=~/.local/share/applications/SSH_Tools-copy-id.sh %F
-Icon=ks-key
+Icon=folder-private
 Name=Install Public Key
 Name[de]=Öffentlichen Schlüssel installieren
 Name[es]=Instalar Llave Publica
@@ -69,7 +69,7 @@ Name[x-test]=xxInstall Public Keyxx
 
 [Desktop Action SSH-keygen]
 Exec=~/.local/share/applications/SSH_Tools-ssh-keygen.sh %F
-Icon=ks-keygen
+Icon=rotation-locked-symbolic
 Name=Public Key Generation
 Name[de]=Öffentlichen Schlüssel erstellen
 Name[es]=Generar Llave Publica
@@ -85,7 +85,7 @@ Name[x-test]=xxPublic Key Generationxx
 
 [Desktop Action SSHfs]
 Exec=which sshfs; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Mount point to Remote Directory" --passivepopup="[Error] Please install sshfs command and try again."; exit 1; else ~/.local/share/applications/SSH_Tools-sshfs.sh %F;fi
-Icon=ks-sshfs
+Icon=media-mount
 Name=Mount point to Remote Directory
 Name[de]=Einbindeort für Remote Verzeichnis
 Name[es]=Montar Directorio Remoto
@@ -101,7 +101,7 @@ Name[x-test]=xxMount point to Remote Directoryxx
 
 [Desktop Action ViewMachine]
 Exec=~/.local/share/applications/SSH_Tools-register-machine.sh %F
-Icon=ks-server
+Icon=network-server-symbolic
 Name=Registered Servers
 Name[de]=Registrierte Server
 Name[es]=Servidores Registrados

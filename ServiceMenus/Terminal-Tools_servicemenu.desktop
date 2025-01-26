@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=ExecScript;RootExecScript;
-Icon=ks-shellscript
+Icon=text-x-script-symbolic
 MimeType=application/x-shellscript;application/x-executable;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -21,7 +21,7 @@ X-KDE-Submenu[x-test]=xxTerminal Toolsxx
 
 [Desktop Action ExecScript]
 Exec=chmod 755 %f; konsole --hold -e %f
-Icon=ks-shellscript
+Icon=text-x-script-symbolic
 Name=Run Application
 Name[de]=Anwendung starten
 Name[es]=Ejecutar Programa
@@ -37,7 +37,7 @@ Name[x-test]=xxRun Applicationxx
 
 [Desktop Action RootExecScript]
 Exec=kdesu -i ks-shellscript --noignorebutton -d -c "chmod 755 %f; konsole --hold -e %f"
-Icon=ks-shellscript
+Icon=text-x-script-symbolic
 Name=Run Application (Root)
 Name[de]=Anwendung als Root starten
 Name[es]=Ejecutar Programa como root

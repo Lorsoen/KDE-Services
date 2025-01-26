@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=Video-Downloader;Code-Collector;
-Icon=ks-youtube-download-video
+Icon=im-youtube
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxYouTube Toolsxx
 
 [Desktop Action Code-Collector]
 Exec=which lynx; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Video List Code Collector" --passivepopup="[Error] Please install lynx command and try again."; exit 1; else ~/.local/share/applications/YouTube_Tools-video-code-collector.sh %F;fi
-Icon=ks-youtube-video-code-collector
+Icon=im-youtube
 Name=Video List Code Collector
 Name[de]=Video liste holen
 Name[es]=Colector de Códigos de Lista de Videos
@@ -36,7 +36,7 @@ Name[x-test]=xxVideo List Code Collectorxx
 
 [Desktop Action Video-Downloader]
 Exec=which youtube-dl; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Video Downloader" --passivepopup="[Error] Please install youtube-dl command and try again."; exit 1; else ~/.local/share/applications/YouTube_Tools-download-video.sh %F;fi
-Icon=ks-youtube-download-video
+Icon=downloaded-symbolic
 Name=Video Downloader
 Name[de]=Video Downloader
 Name[es]=Descargador de Video

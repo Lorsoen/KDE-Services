@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=SearchHere;SearchByName;SearchByString;StatisticsSearchDB;UpdateSearchDB;ModifiedFilesHere
-Icon=ks-search-string
+Icon=cm_search
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxSearch Toolsxx
 
 [Desktop Action SearchByName]
 Exec=which locate; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Search by Name" --passivepopup="[Error] Please install locate command and try again."; exit 1; else ~/.local/share/applications/Search_Tools-search-by-name.sh %F;fi
-Icon=ks-search-name
+Icon=cm_search
 Name=Search by Name
 Name[de]=Suche nach Namen
 Name[es]=Búsqueda por Nombre
@@ -36,7 +36,7 @@ Name[x-test]=xxSearch by Namexx
 
 [Desktop Action SearchByString]
 Exec=kdesu -i ks-search-string -d ~/.local/share/applications/Search_Tools-search-by-string.sh %F
-Icon=ks-search-string
+Icon=edit-select-text
 Name=Search by String
 Name[de]=Suche nach Ausdruck
 Name[es]=Búsqueda por Palabra
@@ -52,7 +52,7 @@ Name[x-test]=xxSearch by Stringxx
 
 [Desktop Action StatisticsSearchDB]
 Exec=which locate; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Statistics Search DataBase" --passivepopup="[Error] Please install locate command and try again."; exit 1; else ~/.local/share/applications/Search_Tools-statistics-search-db.sh %F;fi
-Icon=ks-search-stats
+Icon=category-search-symbolic
 Name=Statistics Search DataBase
 Name[de]=Statistik der Suchdatenbank
 Name[es]=Estadisticas de Base de Datos de Búsqueda
@@ -68,7 +68,7 @@ Name[x-test]=xxStatistics Search DataBasexx
 
 [Desktop Action UpdateSearchDB]
 Exec=which updatedb pidof; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Update Search DataBase" --passivepopup="[Error] Please install updatedb and pidof command and try again."; exit 1; else ~/.local/share/applications/Search_Tools-update-search-db.sh %F;fi
-Icon=ks-search-database-update
+Icon=cm_refresh
 Name=Update Search DataBase
 Name[de]=Suchdatenbank erneuern
 Name[es]=Actualizar Base de Datos de Búsqueda
@@ -84,7 +84,7 @@ Name[x-test]=xxUpdate Search DataBasexx
 
 [Desktop Action SearchHere]
 Exec=kdesu -i ks-search-name -d ~/.local/share/applications/Search_Tools-search-here.sh %F
-Icon=ks-search-name
+Icon=nautilus-folder-search-symbolic
 Name=Search Here
 Name[de]=Hier suchen
 Name[es]=Buscar Aquí
@@ -100,7 +100,7 @@ Name[x-test]=xxSearch Herexx
 
 [Desktop Action ModifiedFilesHere]
 Exec=kdesu -i ks-search-name -d ~/.local/share/applications/Search_Tools-modified-files-here.sh %F
-Icon=ks-search-name
+Icon=nautilus-folder-search-symbolic
 Name=Modified Files Here
 Name[de]=Modifizierte Dateien Hier
 Name[es]=Archivos Modificados Aquí

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=ConnectSentry;HTTP-Server;ListeningSockets;
-Icon=ks-connect-to
+Icon=network-wireless-connected-symbolic
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -8,7 +8,7 @@ X-KDE-StartupNotify=false
 X-KDE-Submenu=Network Tools
 X-KDE-Submenu[de]=Netzwerk Werkzeuge
 X-KDE-Submenu[es]=Internet - Herramientas
-X-KDE-Submenu[fr]=Outils Réseau
+X-KDE-Submenu[fr]=Outils réseau
 X-KDE-Submenu[it]=Rete - Strumenti
 X-KDE-Submenu[ja]=ネットワーク道具
 X-KDE-Submenu[ko]=네트워크 도구
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxNetwork Toolsxx
 
 [Desktop Action ConnectSentry]
 Exec=which ss; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Connect Sentry" --passivepopup="[Error] Please install ss command and try again."; exit 1; else ~/.local/share/applications/Network_Tools-connect-sentry.sh %F;fi
-Icon=ks-sentry-on
+Icon=eye-open-negative-filled-symbolic
 Name=Connect Sentry
 Name[de]=Verbindung überwachen
 Name[es]=Centinela de Conexiones
@@ -36,7 +36,7 @@ Name[x-test]=xxConnect Sentryxx
 
 [Desktop Action HTTP-Server]
 Exec=which lsof python; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="HTTP Server" --passivepopup="[Error] Please install lsof and python command and try again."; exit 1; else KDESU="/usr/local/lib/libexec/*/kdesu"; $KDESU -i ks-folder-public-web -d -c "~/.local/share/applications/HTTP_Server.sh" %F;fi
-Icon=ks-folder-public-web
+Icon=yast-http-server
 Name=HTTP Server
 Name[de]=HTTP Server
 Name[es]=Servidor HTTP
@@ -52,7 +52,7 @@ Name[x-test]=xxHTTP Serverxx
 
 [Desktop Action ListeningSockets]
 Exec=which ss; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Listening Sockets" --passivepopup="[Error] Please install ss command and try again."; exit 1; else KDESU="/usr/local/lib/libexec/*/kdesu"; $KDESU -i ks-socket -d ~/.local/share/applications/Network_Tools-listening-sockets.sh %F;fi
-Icon=ks-socket
+Icon=network-wired-activated
 Name=Listening Sockets
 Name[de]=Listening Sockets
 Name[es]=Puertos Escuchando

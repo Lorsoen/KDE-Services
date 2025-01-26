@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=AddTimestamp;
-Icon=ks-clock
+Icon=clock-applet-symbolic
 MimeType=all/allfiles;inode/directory;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -9,8 +9,8 @@ X-KDE-Submenu=KDE-Services
 X-KDE-Submenu[x-test]=xxKDE-Servicesxx
 
 [Desktop Action AddTimestamp]
-Exec=COUNT="0";COUNTFILES=$(echo %F|wc -w|xargs);kdialog --print-winid --icon=ks-clock --title="Add Timestamp Prefix to [File|Dir]name" --progressbar "Processing $COUNTFILES [File|Dir]name..." 0|grep -o '[[:digit:]]*' > /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid;for i in %F;do mv -f "$i" $(stat "$i"|grep Modify|awk '{print $2"_"$3}'|sed 's/:/-/g'|sed 's/..........$//')_-_$(echo "${i##*/}");done;echo "Finish Add Timestamp Prefix" > /tmp/speak; text2wave -F 48000 -o /tmp/speak.wav /tmp/speak; play /tmp/speak.wav; rm -fr /tmp/speak*; kdialog --icon=ks-clock --title="Add Timestamp Prefix to $COUNTFILES [File|Dir]name" --passivepopup="[Finished]";kill $(cat /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid); rm /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid
-Icon=ks-clock
+Exec=COUNT="0";COUNTFILES=$(echo %F|wc -w|xargs);kdialog --print-winid --icon=clock-applet-symbolic --title="Add Timestamp Prefix to [File|Dir]name" --progressbar "Processing $COUNTFILES [File|Dir]name..." 0|grep -o '[[:digit:]]*' > /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid;for i in %F;do mv -f "$i" $(stat "$i"|grep Modify|awk '{print $2"_"$3}'|sed 's/:/-/g'|sed 's/..........$//')_-_$(echo "${i##*/}");done;echo "Finish Add Timestamp Prefix" > /tmp/speak; text2wave -F 48000 -o /tmp/speak.wav /tmp/speak; play /tmp/speak.wav; rm -fr /tmp/speak*; kdialog --icon=clock-applet-symbolic --title="Add Timestamp Prefix to $COUNTFILES [File|Dir]name" --passivepopup="[Finished]";kill $(cat /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid); rm /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid
+Icon=clock-applet-symbolic
 Name=Add Timestamp Prefix to [File|Dir]name
 Name[de]=Zeitstempel hinzufügen [File|Verzeichnis]
 Name[es]=Agregar Prefijo Fecha-Hora al Nombre del [Fichero|Directorio]

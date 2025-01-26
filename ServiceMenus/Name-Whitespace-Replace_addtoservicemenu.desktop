@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=NameWhitespaceReplace;
-Icon=ks-whitespace-replace
+Icon=keyboard-spacebar
 MimeType=all/allfiles;inode/directory;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -10,7 +10,7 @@ X-KDE-Submenu[x-test]=xxKDE-Servicesxx
 
 [Desktop Action NameWhitespaceReplace]
 Exec=~/.local/share/applications/Dolphin_Tools-name-whitespace-replace.sh
-Icon=ks-whitespace-replace
+Icon=keyboard-spacebar
 Name=[File|Dir]name Whitespace Replace
 Name[de]=Leerzeichen ersetzen von [Datei|Verzeichnis]
 Name[es]=Reemplazar Espacio en Nombre de [Fichero|Directorio]

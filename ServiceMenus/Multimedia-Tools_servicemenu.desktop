@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxMultimedia Toolsxx
 
 [Desktop Action DVD-Assembler]
 Exec=which ffprobe dvdauthor genisoimage; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="DVD Assembler" --passivepopup="[Error] Please install ffprobe, dvdauthor and genisoimage command and try again."; exit 1; else ~/.local/share/applications/DVD_Tools-d.v.d.-assembler.sh %F;fi
-Icon=ks-media-optical-video
+Icon=tools-rip-video-dvd
 Name=DVD Assembler
 Name[de]=DVD zusammenstellen
 Name[es]=Ensamblador de DVD
@@ -52,7 +52,7 @@ Name[x-test]=xxBuild ISO-9660 Image from Herexx
 
 [Desktop Action DiskCloner]
 Exec=which lsblk dd; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="DiskCloner" --passivepopup="[Error] Please install lsblk and dd command and try again."; exit 1; else ~/.local/share/applications/DiskCloner.sh %F;fi
-Icon=ks-media-optical-clone
+Icon=clone-original
 Name=DiskCloner
 Name[de]=DiskCloner (speicherkloner)
 Name[es]=DiskCloner (clonador de disco)
@@ -68,7 +68,7 @@ Name[x-test]=xxDiskClonerxx
 
 [Desktop Action convert-video]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Convert Video Files" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-convert-video.sh %F;fi
-Icon=ks-video
+Icon=emblem-videos-symbolic
 Name=Convert Video Files
 Name[de]=Videodateien konvertieren
 Name[es]=Convertir Archivos de Video
@@ -84,7 +84,7 @@ Name[x-test]=xxConvert video filesxx
 
 [Desktop Action extract-audio]
 Exec=which ffmpeg sox mp3gain; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="[Extract|Convert] Audio Track" --passivepopup="[Error] Please install ffmpeg, sox and mp3gain command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-extract-audio.sh %F;fi
-Icon=ks-audio
+Icon=emblem-music-symbolic
 Name=[Extract|Convert] Audio Track
 Name[de]=[Extrahiere|Konvertiere] Audiospur
 Name[es]=[Extraer|Convertir] Pista de Audio
@@ -100,7 +100,7 @@ Name[x-test]=xx[Extract|Convert] Audio Trackxx
 
 [Desktop Action record-my-desktop]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Record My Desktop" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_record-my-desktop.sh %F;fi
-Icon=ks-media-tape
+Icon=media-tape-symbolic
 Name=Record My Desktop (record video screen)
 Name[de]=Desktop aufzuzeichnen (bildschirm aufzuzeichnen)
 Name[es]=Grabar Mi Escritorio (grabar pantalla de video)
@@ -116,7 +116,7 @@ Name[x-test]=xxRecord My Desktop (record video screen)xx
 
 [Desktop Action vlc-openfolder]
 Exec=which vlc; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Play Video from Here" --passivepopup="[Error] Please install vlc command and try again."; exit 1; else vlc -f %F 2> /dev/null;fi
-Icon=vlc
+Icon=mediaplayer-app-symbolic
 Name=Play Video from Here
 Name[de]=Video von hier abspielen
 Name[es]=Reproducir Video Aquí
@@ -132,7 +132,7 @@ Name[x-test]=xxPlay Video from Herexx
 
 [Desktop Action VideoRotate]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Rotate Video Files" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-video-rotate.sh %F;fi
-Icon=ks-video-rotate
+Icon=image-rotate-left-symbolic
 Name=Rotate Video Files
 Name[de]=Video drehen
 Name[es]=Rotar Ficheros de Video
@@ -148,7 +148,7 @@ Name[x-test]=xxRotate Video Filesxx
 
 [Desktop Action TimeEditMediaFiles]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Edit Time from Media Files" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-edit-media-time.sh %F;fi
-Icon=ks-media-edit-time
+Icon=preferences-system-time-symbolic
 Name=Edit Time from Media Files
 Name[de]=Zeitstempel von Medien editieren
 Name[es]=Editar Tiempo de Ficheros Multimedia
@@ -164,7 +164,7 @@ Name[x-test]=xxEdit Time from Media Filesxx
 
 [Desktop Action AudioMP3AttachCover]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Attach Cover to MP3 Files" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-audio-mp3-attach-cover.sh %F;fi
-Icon=ks-audio-mp3-attach-cover
+Icon=nocover
 Name=Attach Cover to MP3 Files
 Name[de]=Cover zu MP3 hinzufügen
 Name[es]=Adjuntar Cubierta a Ficheros MP3
@@ -180,7 +180,7 @@ Name[x-test]=xxAttach Cover to MP3 Filesxx
 
 [Desktop Action CleanMetadataMediaFiles]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Clean Metadata from Media Files" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-clean-metadata-media-file.sh %F;fi
-Icon=ks-media-clean-metadata
+Icon=delete
 Name=Clean Metadata from Media Files
 Name[de]=Metadaten löschen
 Name[es]=Limpiar Metadatos de Ficheros Multimedia
@@ -196,7 +196,7 @@ Name[x-test]=xxClean Metadata from Media Filesxx
 
 [Desktop Action ConcatenateMediaFiles]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Concatenate Media Files with Same Codec" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-concatenate-media-file.sh %F;fi
-Icon=ks-concatenate-media-file
+Icon=emblem-videos-symbolic
 Name=Concatenate Media Files with Same Codec
 Name[de]=Mediendateien mit gleichem Codec zusammenführen
 Name[es]=Concatenar Ficheros Multimedia con Codecs Iguales
@@ -212,7 +212,7 @@ Name[x-test]=xxConcatenate Media Files with Same Codecxx
 
 [Desktop Action AdjustVolumeLevel]
 Exec=which mp3gain; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Volume Normalize of MP3 Files" --passivepopup="[Error] Please install mp3gain command and try again."; exit 1; else ~/.local/share/applications/Multimedia_Tools-audio-normalize.sh %F;fi
-Icon=ks-audio-normalize
+Icon=multimedia-equalizer-symbolic
 Name=Volume Normalize of MP3 Files
 Name[de]=Lautstärke von MP3s normalisieren
 Name[es]=Normalizar Volumen de Ficheros MP3
@@ -228,7 +228,7 @@ Name[x-test]=xxVolume Normalize of MP3 Filesxx
 
 [Desktop Action AddSubMP4]
 Exec=which ffmpeg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Add Subtitle to MP4 File" --passivepopup="[Error] Please install ffmpeg command and try again."; exit 1; else ~/.local/share/applications/ffmpeg_multifile-add-subtitle.sh %F;fi
-Icon=ks-add-subs
+Icon=media-view-subtitles-symbolic
 Name=Add Subtitle to MP4 Files
 Name[de]=Untertitel zu MP4s hinzufügen
 Name[es]=Agregar Subtitulo a Ficheros MP4

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=ShowPkgChangelog;ShowPkgInfo;ListPkgContent;ListPkgConfFiles;ListPkgDeps;ListPkgScripts;ExtractPkgFiles;IntegrityCheckPkg;
-Icon=ks-rebuild-rpm
+Icon=cm_packfiles
 MimeType=application/x-rpm;application/x-source-rpm;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -20,8 +20,8 @@ X-KDE-Submenu[zh_CN]=软件包工具
 X-KDE-Submenu[x-test]=xxPackage Toolsxx
 
 [Desktop Action ExtractPkgFiles]
-Exec=which rpm2cpio cpio; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Extract Files Here" --passivepopup="[Error] Please install rpm2cpio and cpio command and try again."; exit 1; else PB_PIDFILE="$(mktemp)"; kdialog --icon=ks-rebuild-rpm --title="Extract Files Here" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE; for file in %F;do cd $(dirname $file); mkdir $(basename -s .rpm $file); cd $(basename -s .rpm $file); rpm2cpio $file | cpio -id; kdialog --icon=ks-rebuild-rpm --title="Extract Files Here" --passivepopup="[Finished]    $(basename $file)";done; kill $(cat $PB_PIDFILE); rm $PB_PIDFILE;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm2cpio cpio; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Extract Files Here" --passivepopup="[Error] Please install rpm2cpio and cpio command and try again."; exit 1; else PB_PIDFILE="$(mktemp)"; kdialog --icon=cm_packfiles --title="Extract Files Here" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE; for file in %F;do cd $(dirname $file); mkdir $(basename -s .rpm $file); cd $(basename -s .rpm $file); rpm2cpio $file | cpio -id; kdialog --icon=cm_packfiles --title="Extract Files Here" --passivepopup="[Finished]    $(basename $file)";done; kill $(cat $PB_PIDFILE); rm $PB_PIDFILE;fi
+Icon=cm_packfiles
 Name=Extract Files Here
 Name[de]=Dateien hier entpacken
 Name[es]=Extraer Ficheros Aquí
@@ -36,8 +36,8 @@ Name[zh_CN]=在此提取文件
 Name[x-test]=xxExtract Files Herexx
 
 [Desktop Action IntegrityCheckPkg]
-Exec=which rpm2cpio rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Integrity Check" --passivepopup="[Error] Please install rpm2cpio and rpm command and try again."; exit 1; else PB_PIDFILE="$(mktemp)"; kdialog --icon=ks-rebuild-rpm --title="Integrity Check" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE; for file in %F;do rpm2cpio $file > /dev/null; EXIT1=$?; rpm -Vp --nosignature --nofiles --nodeps $file 2> /tmp/integritychkpkg; EXIT2=$?; if [ "$EXIT1" = "0" ] && [ "$EXIT2" = "0" ]; then kdialog --icon=ks-rebuild-rpm --title="Package Tools - Integrity Check" --passivepopup="[OK]   $(basename $file)"; elif [ "$EXIT1" != "0" ] || [ "$EXIT2" != "0" ]; then kdialog --icon=ks-error --title="Package Tools - Integrity Check" --passivepopup="[ERROR]   $(basename $file)   $(cat /tmp/integritychkpkg)";fi; rm -f /tmp/integritychkpkg;done; kill $(cat $PB_PIDFILE); rm $PB_PIDFILE;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm2cpio rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Integrity Check" --passivepopup="[Error] Please install rpm2cpio and rpm command and try again."; exit 1; else PB_PIDFILE="$(mktemp)"; kdialog --icon=cm_packfiles --title="Integrity Check" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE; for file in %F;do rpm2cpio $file > /dev/null; EXIT1=$?; rpm -Vp --nosignature --nofiles --nodeps $file 2> /tmp/integritychkpkg; EXIT2=$?; if [ "$EXIT1" = "0" ] && [ "$EXIT2" = "0" ]; then kdialog --icon=cm_packfiles --title="Package Tools - Integrity Check" --passivepopup="[OK]   $(basename $file)"; elif [ "$EXIT1" != "0" ] || [ "$EXIT2" != "0" ]; then kdialog --icon=ks-error --title="Package Tools - Integrity Check" --passivepopup="[ERROR]   $(basename $file)   $(cat /tmp/integritychkpkg)";fi; rm -f /tmp/integritychkpkg;done; kill $(cat $PB_PIDFILE); rm $PB_PIDFILE;fi
+Icon=cm_packfiles
 Name=Integrity Check
 Name[de]=Integrität überprüfen
 Name[es]=Comprobar Integridad
@@ -52,8 +52,8 @@ Name[zh_CN]=完整性检查
 Name[x-test]=xxIntegrity Checkxx
 
 [Desktop Action ListPkgContent]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Content" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qlp %f > /tmp/pkgcontent; kdialog --icon=ks-rebuild-rpm --title="Package Tools - List Content - $(basename %f)" --textbox /tmp/pkgcontent 800 300; rm -f /tmp/pkgcontent;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Content" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qlp %f > /tmp/pkgcontent; kdialog --icon=cm_packfiles --title="Package Tools - List Content - $(basename %f)" --textbox /tmp/pkgcontent 800 300; rm -f /tmp/pkgcontent;fi
+Icon=cm_packfiles
 Name=List Content
 Name[de]=Inhalt auflisten
 Name[es]=Listar Contenido
@@ -68,8 +68,8 @@ Name[zh_CN]=查看内容
 Name[x-test]=xxList Contentxx
 
 [Desktop Action ListPkgConfFiles]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Configuration Files" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qcp %f > /tmp/pkgconfiles; kdialog --icon=ks-rebuild-rpm --title="Package Tools - List Configuration Files - $(basename %f)" --textbox /tmp/pkgconfiles 800 300; rm -f /tmp/pkgconfiles;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Configuration Files" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qcp %f > /tmp/pkgconfiles; kdialog --icon=cm_packfiles --title="Package Tools - List Configuration Files - $(basename %f)" --textbox /tmp/pkgconfiles 800 300; rm -f /tmp/pkgconfiles;fi
+Icon=cm_packfiles
 Name=List Configuration Files
 Name[de]=Konfigurationsdateien auflisten
 Name[es]=Listar Ficheros de Configuración
@@ -84,8 +84,8 @@ Name[zh_CN]=列出配置文件
 Name[x-test]=xxList Configuration Filesxx
 
 [Desktop Action ListPkgDeps]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Dependencies" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qRp %f > /tmp/pkgdeps; kdialog --icon=ks-rebuild-rpm --title="Package Tools - List Dependencies - $(basename %f)" --textbox /tmp/pkgdeps 800 300; rm -f /tmp/pkgdeps;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List Dependencies" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qRp %f > /tmp/pkgdeps; kdialog --icon=cm_packfiles --title="Package Tools - List Dependencies - $(basename %f)" --textbox /tmp/pkgdeps 800 300; rm -f /tmp/pkgdeps;fi
+Icon=cm_packfiles
 Name=List Dependencies
 Name[de]=Abhängigkeiten auflisten
 Name[es]=Listar Dependencias
@@ -100,8 +100,8 @@ Name[zh_CN]=列出依赖
 Name[x-test]=xxList Dependenciesxx
 
 [Desktop Action ListPkgScripts]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List [Ins|Unins]tallation Scripts" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qp --scripts %f > /tmp/pkgscripts; kdialog --icon=ks-rebuild-rpm --title="Package Tools - List [Ins|Unins]tallation Scripts - $(basename %f)" --textbox /tmp/pkgscripts 800 300; rm -f /tmp/pkgscripts;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="List [Ins|Unins]tallation Scripts" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qp --scripts %f > /tmp/pkgscripts; kdialog --icon=cm_packfiles --title="Package Tools - List [Ins|Unins]tallation Scripts - $(basename %f)" --textbox /tmp/pkgscripts 800 300; rm -f /tmp/pkgscripts;fi
+Icon=cm_packfiles
 Name=List [Ins|Unins]tallation Scripts
 Name[de]=[Ins|Unins]tallationsscripte auflisten
 Name[es]=Listar Ordenes de [Ins|Desins]talación
@@ -116,8 +116,8 @@ Name[zh_CN]=显示[安装|卸载]的命令
 Name[x-test]=xxList [Ins|Unins]tallation Scriptsxx
 
 [Desktop Action ShowPkgChangelog]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Show Changelog" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qp --changelog %f > /tmp/pkgchangelog; kdialog --icon=ks-rebuild-rpm --title="Package Tools - Show Changelog - $(basename %f)" --textbox /tmp/pkgchangelog 800 300; rm -f /tmp/pkgchangelog;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Show Changelog" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qp --changelog %f > /tmp/pkgchangelog; kdialog --icon=cm_packfiles --title="Package Tools - Show Changelog - $(basename %f)" --textbox /tmp/pkgchangelog 800 300; rm -f /tmp/pkgchangelog;fi
+Icon=cm_packfiles
 Name=Show Changelog
 Name[de]=Changelog anzeigen
 Name[es]=Mostrar Registro de Cambios
@@ -132,8 +132,8 @@ Name[zh_CN]=查看更新日志
 Name[x-test]=xxShow Changelogxx
 
 [Desktop Action ShowPkgInfo]
-Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Show Info" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qip %f > /tmp/pkginfo; kdialog --icon=ks-rebuild-rpm --title="Package Tools - Show Info - $(basename %f)" --textbox /tmp/pkginfo 800 300; rm -f /tmp/pkginfo;fi
-Icon=ks-rebuild-rpm
+Exec=which rpm; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Show Info" --passivepopup="[Error] Please install rpm command and try again."; exit 1; else rpm -qip %f > /tmp/pkginfo; kdialog --icon=cm_packfiles --title="Package Tools - Show Info - $(basename %f)" --textbox /tmp/pkginfo 800 300; rm -f /tmp/pkginfo;fi
+Icon=cm_packfiles
 Name=Show Info
 Name[de]=Info anzeigen
 Name[es]=Mostrar Información

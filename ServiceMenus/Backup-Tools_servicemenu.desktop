@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=Backup-Restore-Standards;
-Icon=ks-database
+Icon=network-server-database-symbolic
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxBackup Toolsxx
 
 [Desktop Action Backup-Restore-Standards]
 Exec=~/.local/share/applications/Backup_Tools-standard.sh %F
-Icon=ks-database
+Icon=network-server-database-symbolic
 Name=Standards
 Name[de]=Standard
 Name[es]=Estándares

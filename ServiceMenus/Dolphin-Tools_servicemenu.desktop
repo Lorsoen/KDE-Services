@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=Connect;ViewMachine;DiskUse;
-Icon=ks-dolphin-file-manager
+Icon=filemanager-app-symbolic
 Type=Service
 X-KDE-Priority=TopLevel
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
@@ -20,7 +20,7 @@ X-KDE-Submenu[x-test]=xxDolphin Toolsxx
 
 [Desktop Action Connect]
 Exec=~/.local/share/applications/Dolphin_Tools-connect.sh %F
-Icon=ks-folder-remote
+Icon=folder-remote-symbolic
 Name=Connect to
 Name[de]=Verbinde mit
 Name[es]=Conectar a
@@ -36,7 +36,7 @@ Name[x-test]=xxConnect toxx
 
 [Desktop Action DiskUse]
 Exec=~/.local/share/applications/Dolphin_Tools-disk-use.sh %F
-Icon=ks-disk-space-used
+Icon=disk-usage-app-symbolic
 Name=Disk Space Used
 Name[de]=Belegter Speicherplatz
 Name[es]=Espacio de Disco Usado
@@ -52,7 +52,7 @@ Name[x-test]=xxDisk Space Usedxx
 
 [Desktop Action ViewMachine]
 Exec=~/.local/share/applications/SSH_Tools-register-machine.sh %F
-Icon=ks-server
+Icon=network-server-symbolic
 Name=Registered Servers
 Name[de]=Registrierte Server
 Name[es]=Servidores Registrados

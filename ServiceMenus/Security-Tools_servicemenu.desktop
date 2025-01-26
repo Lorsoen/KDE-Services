@@ -1,6 +1,6 @@
 [Desktop Entry]
 Actions=sendto-mailx;Encrypt;Decrypt;shredder;
-Icon=ks-encrypt
+Icon=document-encrypt
 MimeType=all/allfiles;
 ServiceTypes=KonqPopupMenu/Plugin
 Type=Service
@@ -21,7 +21,7 @@ X-KDE-Submenu[x-test]=xxSecurity Toolsxx
 
 [Desktop Action Decrypt]
 Exec=which gpg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Decrypt" --passivepopup="[Error] Please install gpg command and try again."; exit 1; else gpg --yes --passphrase "$(kdialog --title="File Decryption" --password="Enter passphrase for decrypt")" %f && if [ "$?" = "0" ]; then kdialog --icon=ks-decrypt --title="File Decryption" --passivepopup="[Finished]";fi;fi
-Icon=ks-decrypt
+Icon=document-edit-encrypt
 Name=Decrypt
 Name[de]=Entschlüsseln
 Name[es]=Desencriptar
@@ -37,7 +37,7 @@ Name[x-test]=xxDecryptxx
 
 [Desktop Action Encrypt]
 Exec=which gpg; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Encrypt" --passivepopup="[Error] Please install gpg command and try again."; exit 1; else gpg --yes -c --passphrase "$(kdialog --title="File Encryption" --password="Enter passphrase for encrypt")" %f && if [ "$?" = "0" ]; then kdialog --icon=ks-encrypt --title="File Encryption" --passivepopup="[Finished]";fi;fi
-Icon=ks-encrypt
+Icon=document-edit-sign-encrypt
 Name=Encrypt
 Name[de]=Verschlüsseln
 Name[es]=Encriptar
@@ -53,7 +53,7 @@ Name[x-test]=xxEncryptxx
 
 [Desktop Action sendto-mailx]
 Exec=which zip mailx; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Secure Send to Mailx" --passivepopup="[Error] Please install zip and mailx command and try again."; exit 1; else zip -9reP $(kdialog --icon=ks-secure-mail --title="Secure Send to Mailx" --password="Enter password for encrypt:") %f.zip %f; mailx -s "$(kdialog --icon=ks-secure-mail --title="Secure Send to Mailx" --inputbox="Message Subject:")" -a $(kdialog --icon=ks-secure-mail --title="Secure Send to Mailx" --textinputbox="Message Body:" > /tmp/mailbody) /tmp/mailbody -a %f.zip $(kdialog --icon=ks-secure-mail --title="Secure Send to Mailx" --inputbox="Mail To:\t(For send to multiples mailbox enter comma separated list of address)") <.; rm -f %f.zip /tmp/mailbody; kdialog --icon=ks-secure-mail --title="Secure Send to Mailx" --passivepopup="[Finished]";fi
-Icon=ks-secure-mail
+Icon=mail-encrypted-part
 Name=Secure Send to Mailx
 Name[de]=Sicher mit Mailx versenden
 Name[es]=Envío Seguro a Mailx
@@ -69,7 +69,7 @@ Name[x-test]=xxSecure Send to Mailxxx
 
 [Desktop Action shredder]
 Exec=which shred; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Paranoid Shredder" --passivepopup="[Error] Please install shred command and try again."; exit 1; else PB_PIDFILE="$(mktemp)"; kdialog --icon=ks-shredder --title="Paranoid Shredder" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE; for file in %F;do cd ${file%/*}; shred -f -n 5 --random-source=/dev/urandom -u -z "$file"; kdialog --icon=ks-shredder --title="Paranoid Shredder" --passivepopup="[Finished]    ${file##*/}";done; kill $(cat $PB_PIDFILE); rm $PB_PIDFILE;fi
-Icon=ks-shredder
+Icon=edit-delete-shred
 Name=Paranoid Shredder
 Name[de]=Shredder für Paranoide
 Name[es]=Trituradora Paranoica
