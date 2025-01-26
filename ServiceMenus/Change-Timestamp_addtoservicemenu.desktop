@@ -13,12 +13,12 @@ Exec=TIMESTAMP=$(kdialog --icon=ks-clock --title="Change Timestamp to [File|Dire
 Icon=clock-applet-symbolic
 Name=Change Timestamp to [File|Directory]
 Name[de]=Datum ändern [File|Verzeichnis]
-Name[es]=Cambiar Fecha del [Fichero|Directorio]
-Name[fr]=Changer la Date du [Fichier|Dossier]
-Name[it]=Cambia Data [File|Cartella]
+Name[es]=Cambiar fecha del [Fichero|Directorio]
+Name[fr]=Changer la date du [Fichier|Dossier]
+Name[it]=Cambia data [File|Cartella]
 Name[ja]=日付を変えることの [ファイル|ディレクトリ]
 Name[ko]=날짜를 변한다 [파일|디렉토리]
-Name[pt]=Mudar Data do [Arquivo|Diretório]
+Name[pt]=Mudar data do [Arquivo|Diretório]
 Name[ru]=Изменить отметку времени [Файла|Папки]
 Name[uk]=Змінити відмітку часу [Файлу|Теки]
 Name[zh_CN]=改变[文件|目录]时间戳

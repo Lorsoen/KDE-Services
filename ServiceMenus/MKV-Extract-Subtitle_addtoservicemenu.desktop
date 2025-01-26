@@ -13,12 +13,12 @@ Exec=which mkvextract; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="
 Icon=emblem-videos-symbolic
 Name=MKV Extract Subtitle
 Name[de]=MKV Untertitel extrahieren
-Name[es]=MKV Extraer Subtítulo
-Name[fr]=MKV Extraire les Sous-titres
-Name[it]=MKV Estrai Sottotitoli
+Name[es]=MKV Extraer subtítulo
+Name[fr]=MKV Extraire les sous-titres
+Name[it]=MKV Estrai sottotitoli
 Name[ja]=引き出すべき MKV は字幕を付けます
 Name[ko]=부제를 빼내는 MKV
-Name[pt]=MKV para Extrair Subtítulo
+Name[pt]=MKV para extrair subtítulo
 Name[ru]=MKV Извлечь субтитры
 Name[uk]=MKV Видобути субтитри
 Name[zh_CN]=提取 MKV 字幕
