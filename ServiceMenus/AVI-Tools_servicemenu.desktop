@@ -23,9 +23,9 @@ X-KDE-Submenu[x-test]=xxAVI Toolsxx
 Exec=which avisplit; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Split (to size)" --passivepopup="[Error] Please install avisplit command and try again."; exit 1; else ~/.local/share/applications/AVI_Tools-avi-split-size.sh %F;fi
 Icon=ks-video
 Name=Split (to size)
-Name[de]=Auf Größe stückeln
+Name[de]=Auf größe stückeln
 Name[es]=Cortar (a medida)
-Name[fr]=Couper (à la tailler)
+Name[fr]=Couper (à la taille)
 Name[it]=Dividi (a misura)
 Name[ja]=カットに (分量に)
 Name[ko]=자른다 (측정에)
@@ -39,7 +39,7 @@ Name[x-test]=xxSplit (to size)xx
 Exec=which avisplit; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Split (by time range)" --passivepopup="[Error] Please install avisplit command and try again."; exit 1; else ~/.local/share/applications/AVI_Tools-avi-split-time.sh %F;fi
 Icon=ks-video
 Name=Split (by time range)
-Name[de]=Auf Länge stückeln
+Name[de]=Auf länge stückeln
 Name[es]=Cortar (por rango de tiempo)
 Name[fr]=Couper (par tranche de temps)
 Name[it]=Dividi (per area temporale)

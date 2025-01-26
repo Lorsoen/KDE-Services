@@ -11,14 +11,14 @@ X-KDE-Submenu[x-test]=xxKDE-Servicesxx
 [Desktop Action AddTimestamp]
 Exec=COUNT="0";COUNTFILES=$(echo %F|wc -w|xargs);kdialog --print-winid --icon=ks-clock --title="Add Timestamp Prefix to [File|Dir]name" --progressbar "Processing $COUNTFILES [File|Dir]name..." 0|grep -o '[[:digit:]]*' > /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid;for i in %F;do mv -f "$i" $(stat "$i"|grep Modify|awk '{print $2"_"$3}'|sed 's/:/-/g'|sed 's/..........$//')_-_$(echo "${i##*/}");done;echo "Finish Add Timestamp Prefix" > /tmp/speak; text2wave -F 48000 -o /tmp/speak.wav /tmp/speak; play /tmp/speak.wav; rm -fr /tmp/speak*; kdialog --icon=ks-clock --title="Add Timestamp Prefix to $COUNTFILES [File|Dir]name" --passivepopup="[Finished]";kill $(cat /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid); rm /tmp/Add-Timestamp-Prefix_addtoservicemenu-progressbar.pid
 Icon=ks-clock
-Name=Add Timestamp Prefix to [File|Dir]name
+Name=Add Timestamp Prefix to [File|Dir] name
 Name[de]=Zeitstempel hinzufügen [File|Verzeichnis]
-Name[es]=Agregar Prefijo Fecha-Hora al Nombre del [Fichero|Directorio]
-Name[fr]=Préfixer "Date-Heure" au Nom du [Fichier|Dossier]
-Name[it]=Aggiungi Prefisso Temporale al Nome del [File|Cartella]
+Name[es]=Agregar prefijo "Fecha-Hora" al nombre del [Fichero|Directorio]
+Name[fr]=Préfixer "Date-Heure" au nom du [Fichier|Dossier]
+Name[it]=Aggiungi prefisso temporale al nome del [File|Cartella]
 Name[ja]=名前に Presets 日付時間を加えることの [ファイル|ディレクトリ]
 Name[ko]=더하는 것은 이름에 날짜 - 시간을 사전에 세트한다 의 [파일|디렉토리]
-Name[pt]=Somar Prefixa Data-Hora ao Nome do [Arquivo|Diretório]
+Name[pt]=Somar prefixa "Data-Hora" ao nome do [Arquivo|Diretório]
 Name[ru]=Приставить отметку времени к имени [Файла|Папки]
 Name[uk]=Приставити відмітку часу до назви [Файлу|Теки]
 Name[zh_CN]=添加时间戳为[文件|目录]前缀

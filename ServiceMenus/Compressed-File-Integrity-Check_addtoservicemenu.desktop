@@ -12,13 +12,13 @@ X-KDE-Submenu[x-test]=xxKDE-Servicesxx
 Exec=which lsar; if [ "$?" != "0" ];then kdialog --icon=ks-error --title="Compressed File Integrity Check" --passivepopup="[Error] Please install lsar command and try again."; exit 1; else ~/.local/share/applications/Compressed_file_integrity_check.sh %F;fi
 Icon=ks-compressed-file
 Name=Compressed File Integrity Check
-Name[de]=Komprimierte Datenintegrität prüfen
-Name[es]=Chequeo de Integridad de Archivo Comprimido
-Name[fr]=Tester l'Intégrité de l'Archive
+Name[de]=Komprimierte datenintegrität prüfen
+Name[es]=Chequeo de integridad de archivo comprimido
+Name[fr]=Vérifier l'intégrité de l'archive
 Name[it]=Verifica Integrità dei File Compressi
 Name[ja]=ファイル錠剤の完全性の健康診断
 Name[ko]=파일 알약의 성실의 검사
-Name[pt]=Exame de Integridade de Tablete de Arquivo
+Name[pt]=Exame de integridade de tablete de arquivo
 Name[ru]=Сжал Проверку Целостности Файла
 Name[uk]=Стиснув Перевірку Цілісності Файлу
 Name[zh_CN]=压缩包完整性检查
