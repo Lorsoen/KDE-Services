@@ -32,6 +32,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.            #
 ###################################################################################
 
+LOADED_SCRIPT=$(basename ${0##*/} .sh)
+echo $LOADED_SCRIPT
 BEGIN_TIME=""
 ELAPSED_TIME=""
 FILE=$@
@@ -40,6 +42,22 @@ HASH=""
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:~/bin
 PB_PIDFILE="$(mktemp)"
 TMP=$(mktemp)
+TEXTDOMAIN=${0##*/}
+TEXTDOMAINDIR=~/.local/share/locale
+TXT=$(gettext "$LOADED_SCRIPT")
+
+messages() {
+
+	new_line="
+"
+
+	POPUP_TITLE=$(${TXT} "Verify ${HASH} CheckSum")
+}
+
+load_messages () {
+	## - if localized strings are incomplete use english only for missing strings
+	messages && [ "${LANG}" != "en_US" ] && source /home/lorenzo/Documents/Traduction/KDE-Services/translations/fr.sh
+}
 
 ###################################
 ############ Functions ############
@@ -50,26 +68,26 @@ finished() {
 		FINAL_TIME=$(date +%s)
 		ELAPSED_TIME=$((FINAL_TIME-BEGIN_TIME))
 		if [ "$ELAPSED_TIME" -lt "60" ]; then
-			kdialog --icon=ks-checksum --title="Verify $HASH CheckSum" \
+			kdialog --icon=ks-checksum --title="${POPUP_TITLE}" \
 				--passivepopup="[Finished]   $(cat $TMP).   Elapsed Time: ${ELAPSED_TIME}s" 2>/dev/null
 		elif [ "$ELAPSED_TIME" -gt "59" ] && [ "$ELAPSED_TIME" -lt "3600" ]; then
 			ELAPSED_TIME=$(echo "$ELAPSED_TIME/60"|bc -l|sed 's/...................$//')
-			kdialog --icon=ks-checksum --title="Verify $HASH CheckSum" \
+			kdialog --icon=ks-checksum --title="${POPUP_TITLE}" \
 				--passivepopup="[Finished]   $(cat $TMP).   Elapsed Time: ${ELAPSED_TIME}m" 2>/dev/null
 		elif [ "$ELAPSED_TIME" -gt "3599" ]; then
 			ELAPSED_TIME=$(echo "$ELAPSED_TIME/3600"|bc -l|sed 's/...................$//')
-			kdialog --icon=ks-checksum --title="Verify $HASH CheckSum" \
+			kdialog --icon=ks-checksum --title="${POPUP_TITLE}" \
 				--passivepopup="[Finished]   $(cat $TMP).   Elapsed Time: ${ELAPSED_TIME}h" 2>/dev/null
 		fi
 	else
-		kdialog --icon=ks-error --title="Verify $HASH CheckSum" \
+		kdialog --icon=ks-error --title="${POPUP_TITLE}" \
 			--passivepopup="[Error]   $(cat $TMP|awk -F : '{print $3}')." 2>/dev/null
 	fi
 	rm -f $TMP
 }
 
 progressbar-start() {
-	kdialog --icon=ks-checksum --title="Verify $HASH CheckSum" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE
+	kdialog --icon=ks-checksum --title="${POPUP_TITLE}" --print-winid --progressbar "$(date) - Processing..." /ProcessDialog|grep -o '[[:digit:]]*' > $PB_PIDFILE
 }
 
 progressbar-stop() {
@@ -81,6 +99,7 @@ progressbar-stop() {
 ############ Main ############
 ##############################
 
+load_messages
 progressbar-start
 
 for file in $FILE; do
@@ -119,7 +138,7 @@ for file in $FILE; do
 
 	DIR="$(pwd)"
 	CHECKSUMFILE=${file##*.}
-	
+
 	if [ "$CHECKSUMFILE" != "md5" ] && [ "$CHECKSUMFILE" != "MD5" ] && [ "$CHECKSUMFILE" != "sha1" ] && [ "$CHECKSUMFILE" != "SHA1" ] && \
 		[ "$CHECKSUMFILE" != "sha256" ] && [ "$CHECKSUMFILE" != "SHA256" ] && [ "$CHECKSUMFILE" != "sha512" ] && [ "$CHECKSUMFILE" != "SHA512" ]; then
 		kdialog --icon=ks-error --title="Verify CheckSum" \
@@ -132,21 +151,25 @@ for file in $FILE; do
 		HASH=$(echo md5|tr a-z A-Z)
 		BEGIN_TIME=$(date +%s)
 		md5sum -c "$file" &> $TMP
+		load_messages
 		finished
 	elif [ "$CHECKSUMFILE" = "sha1" ] || [ "$CHECKSUMFILE" = "SHA1" ]; then
 		HASH=$(echo sha1|tr a-z A-Z)
 		BEGIN_TIME=$(date +%s)
 		sha1sum -c "$file" &> $TMP
+		load_messages
 		finished
 	elif [ "$CHECKSUMFILE" = "sha256" ] || [ "$CHECKSUMFILE" = "SHA256" ]; then
 		HASH=$(echo sha256|tr a-z A-Z)
 		BEGIN_TIME=$(date +%s)
 		sha256sum -c "$file" &> $TMP
+		load_messages
 		finished
 	elif [ "$CHECKSUMFILE" = "sha512" ] || [ "$CHECKSUMFILE" = "SHA512" ]; then
 		HASH=$(echo sha512|tr a-z A-Z)
 		BEGIN_TIME=$(date +%s)
 		sha512sum -c "$file" &> $TMP
+		load_messages
 		finished
 	fi
 done
