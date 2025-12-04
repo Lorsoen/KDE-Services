@@ -13,6 +13,7 @@ PREFIXmime=~/.local/share/mime/text
 PREFIXappmerge=~/.config/kdedefaults/menus/applications-merged
 PREFIXdeskdir=~/.local/share/desktop-directories
 PREFIXdoc=~/.local/share/doc/kde-services
+PREFIXlocale=~/.local/share/locale
 
 if [ "$KDE_SESSION_VERSION" == "5" ]; then
 	mkdir -p ${PREFIXmenu5}
@@ -26,6 +27,7 @@ mkdir -p ${PREFIXmime}
 mkdir -p ${PREFIXappmerge}
 mkdir -p ${PREFIXdeskdir}
 mkdir -p ${PREFIXdoc}
+mkdir -p ${PREFIXlocale}
 
 if [ "$KDE_SESSION_VERSION" == "5" ]; then
 	cp ServiceMenus/* ${PREFIXmenu5}
@@ -39,6 +41,7 @@ cp mime/text/* ${PREFIXmime}
 cp applications-merged/* ${PREFIXappmerge}
 cp desktop-directories/* ${PREFIXdeskdir}
 cp doc/* ${PREFIXdoc}
+cp -r locale/* ${PREFIXlocale}
 
 xdg-mime install --novendor ${PREFIXmime}/kde-services.xml
 update-mime-database ~/.local/share/mime > /dev/null

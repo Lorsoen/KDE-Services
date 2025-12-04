@@ -33,7 +33,10 @@
 ###################################################################################
 
 LOADED_SCRIPT=$(basename ${0##*/} .sh)
-echo $LOADED_SCRIPT
+TEXTDOMAIN=${0##*/}
+TEXTDOMAINDIR=~/.local/share/locale
+alias GETTEXT=$(gettext "$LOADED_SCRIPT")
+
 BEGIN_TIME=""
 ELAPSED_TIME=""
 FILE=$@
@@ -42,26 +45,24 @@ HASH=""
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:~/bin
 PB_PIDFILE="$(mktemp)"
 TMP=$(mktemp)
-TEXTDOMAIN=${0##*/}
-TEXTDOMAINDIR=~/.local/share/locale
-TXT=$(gettext "$LOADED_SCRIPT")
 
 messages() {
-
-	new_line="
-"
-
-	POPUP_TITLE=$(${TXT} "Verify ${HASH} CheckSum")
+	POPUP_TITLE=$("Verify %s CheckSum") "${HASH}"
 }
 
-load_messages () {
-	## - if localized strings are incomplete use english only for missing strings
-	messages && [ "${LANG}" != "en_US" ] && source /home/lorenzo/Documents/Traduction/KDE-Services/translations/fr.sh
+messages_display() {
+	POPUP_TITLE=$"Verify %s CheckSum"
 }
 
 ###################################
 ############ Functions ############
 ###################################
+
+load_messages () {
+	## - if localized strings are incomplete use english only for missing strings
+	messages_display  && [ "${LANG}" != "en_US" ] && source ~/.locale/fr/LC_MESSAGES/$LOADED_SCRIPT.mo
+	echo $POPUP_TITLE
+}
 
 finished() {
 	if [ "$?" = "0" ]; then

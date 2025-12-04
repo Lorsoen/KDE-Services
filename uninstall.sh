@@ -13,6 +13,7 @@ PREFIXmime=~/.local/share/mime/text
 PREFIXappmerge=~/.config/kdedefaults/menus/applications-merged
 PREFIXdeskdir=~/.local/share/desktop-directories
 PREFIXdoc=~/.local/share/doc/kde-services
+PREFIXlocale=~/.local/share/locale
 
 if [ "$KDE_SESSION_VERSION" == "5" ]; then
 	rm -f ${PREFIXmenu5}/Add-Timestamp-Prefix_addtoservicemenu.desktop \

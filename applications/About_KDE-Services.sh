@@ -363,7 +363,7 @@ cat > /tmp/about_kde-services << EOF
                     - Gabriel Fontenelle <contato@gabrielfontenelle.com> (Fix a problem with unmounting image removing directory not created by fuseiso).
                     - Mateus Cruz <mateushenriquedacc@gmail.com> (Translations to Brazilian Portuguese and Portuguese).
 
-            Author: 
+            Author:
                     Geovani Barzaga Rodriguez (geobarrod) <igeo.cu@gmail.com>, Developer.
 
             License:
